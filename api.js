@@ -25,6 +25,33 @@ export const getSiswa = async (req, res) => {
   }
 };
 
+export const getSiswaById = async (req, res) => {
+  try {
+    checkSiswaDb();
+
+    const { id } = req.params;
+
+    const siswa = await db.model("Siswa").findById(id);
+
+    if (!siswa) {
+      return res.status(404).json({
+        message: "error",
+        error: "Student not found",
+      });
+    }
+
+    res.status(200).json({
+      message: "success",
+      data: siswa,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "error",
+      error: error.message,
+    });
+  }
+};
+
 export const createSiswa = async (req, res) => {
   try {
     checkSiswaDb();

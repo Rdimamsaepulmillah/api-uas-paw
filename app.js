@@ -1,7 +1,13 @@
 import express from "express";
 import cors from "cors";
 import { connectDB, db, siswaSchema } from "./db.js";
-import { getSiswa, createSiswa, updateSiswa, deleteSiswa } from "./api.js";
+import {
+  getSiswa,
+  getSiswaById,
+  createSiswa,
+  updateSiswa,
+  deleteSiswa,
+} from "./api.js";
 import "dotenv/config";
 
 connectDB();
@@ -21,6 +27,7 @@ app.use(express.json());
 
 // API routes
 app.get("/daftar", getSiswa);
+app.get("/daftar/:id", getSiswaById);
 app.post("/daftar", createSiswa);
 app.patch("/daftar/:id", updateSiswa);
 app.delete("/daftar/:id", deleteSiswa);
