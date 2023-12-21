@@ -8,8 +8,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: "https://sityas.pandawadev.cloud",
-  optionsSuccessStatus: 200,
+  origin: "*",
 };
 
 app.use(cors(corsOptions));
