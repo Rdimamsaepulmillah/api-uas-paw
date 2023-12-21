@@ -1,17 +1,14 @@
 import express from "express";
 import cors from "cors";
-import { connectDB } from "./db.js";
+import { connectDB, db, siswaSchema } from "./db.js";
 import { getSiswa, createSiswa, updateSiswa, deleteSiswa } from "./api.js";
+import "dotenv/config";
 
 connectDB();
 
 const app = express();
 
-const corsOptions = {
-  origin: "*",
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,8 +16,8 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // API routes
 app.get("/daftar", getSiswa);
