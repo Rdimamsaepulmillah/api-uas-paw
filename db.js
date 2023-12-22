@@ -25,23 +25,21 @@ export const siswaSchema = mongoose.Schema({
   tanggal_lahir_siswa: Date,
   jenis_kelamin: String,
   pilihan: String,
-  // Fields for Ayah
+  nik_siswa: String,
+
   nama_ayah: String,
   tempat_lahir_ayah: String,
   tanggal_lahir_ayah: Date,
   pekerjaan_ayah: String,
   pendidikan_ayah: String,
   penghasilan_ayah: String,
-  ktp_ayah: String, // Assuming you store a file path or URL
+  ktp_ayah: String,
 
-  // Fields for Ibu
   nama_ibu: String,
   tempat_lahir_ibu: String,
   tanggal_lahir_ibu: Date,
   pekerjaan_ibu: String,
   pendidikan_ibu: String,
   penghasilan_ibu: String,
-  ktp_ibu: String, // Assuming you store a file path or URL
+  ktp_ibu: String,
 });
-
-
